@@ -1,0 +1,35 @@
+{
+  "name": "pair-project-phase-1",
+  "version": "1.0.0",
+  "description": "Final Pair Project Phase 1 by Hacktiv8 Indonesia",
+  "keywords": [
+    "Express.js",
+    "EJS",
+    "Sequelize"
+  ],
+  "homepage": "https://github.com/fathirachmann/pp-phase1-h8#readme",
+  "bugs": {
+    "url": "https://github.com/fathirachmann/pp-phase1-h8/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fathirachmann/pp-phase1-h8.git"
+  },
+  "license": "ISC",
+  "author": "Faisal Fathi Rachman, Henry Si",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.3"
+  }
+}
