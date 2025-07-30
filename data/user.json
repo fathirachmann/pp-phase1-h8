@@ -1,0 +1,62 @@
+[
+  {
+    "username": "admincoffee",
+    "email": "admin@coffeestore.com",
+    "password": "hashed_admin_pw",
+    "role": "admin"
+  },
+  {
+    "username": "coffeelover22",
+    "email": "user1@example.com",
+    "password": "hashed_pw_1",
+    "role": "user"
+  },
+  {
+    "username": "beansbrew",
+    "email": "user2@example.com",
+    "password": "hashed_pw_2",
+    "role": "user"
+  },
+  {
+    "username": "roastmaster",
+    "email": "user3@example.com",
+    "password": "hashed_pw_3",
+    "role": "user"
+  },
+  {
+    "username": "coffeehunter",
+    "email": "user4@example.com",
+    "password": "hashed_pw_4",
+    "role": "user"
+  },
+  {
+    "username": "sipandsmile",
+    "email": "user5@example.com",
+    "password": "hashed_pw_5",
+    "role": "user"
+  },
+  {
+    "username": "kopikreatif",
+    "email": "user6@example.com",
+    "password": "hashed_pw_6",
+    "role": "user"
+  },
+  {
+    "username": "latteartlove",
+    "email": "user7@example.com",
+    "password": "hashed_pw_7",
+    "role": "user"
+  },
+  {
+    "username": "brewbrother",
+    "email": "user8@example.com",
+    "password": "hashed_pw_8",
+    "role": "user"
+  },
+  {
+     "username": "coffeecode",
+    "email": "user9@example.com",
+    "password": "hashed_pw_9",
+    "role": "admin"
+  }
+]

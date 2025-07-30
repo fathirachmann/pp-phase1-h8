@@ -1,0 +1,82 @@
+[
+  {
+    "productName": "Sumatra Mandheling",
+    "description": "Full-bodied with earthy and chocolate notes.",
+    "price": 135000,
+    "imageUrl": "https://example.com/img/sumatra-mandheling.jpg",
+    "stock": 45,
+    "UserId": 2
+  },
+  {
+    "productName": "Java Preanger",
+    "description": "Bright acidity, hints of chocolate and spice.",
+    "price": 120000,
+    "imageUrl": "https://example.com/img/java-preanger.jpg",
+    "stock": 30,
+    "UserId": 2
+  },
+  {
+    "productName": "Toraja Kalosi",
+    "description": "Complex body with fruity and spicy undertones.",
+    "price": 145000,
+    "imageUrl": "https://example.com/img/toraja-kalosi.jpg",
+    "stock": 20,
+    "UserId": 2
+  },
+  {
+    "productName": "Aceh Gayo",
+    "description": "Smooth body with earthy tones and balanced acidity.",
+    "price": 130000,
+    "imageUrl": "https://example.com/img/aceh-gayo.jpg",
+    "stock": 35,
+    "UserId": 2
+  },
+  {
+    "productName": "Bali Kintamani",
+    "description": "Citrusy and clean with a bright floral finish.",
+    "price": 125000,
+    "imageUrl": "https://example.com/img/bali-kintamani.jpg",
+    "stock": 40,
+    "UserId": 2
+  },
+  {
+    "productName": "Flores Bajawa",
+    "description": "Well-balanced with chocolate, floral, and nutty notes.",
+    "price": 128000,
+    "imageUrl": "https://example.com/img/flores-bajawa.jpg",
+    "stock": 25,
+    "UserId": 2
+  },
+  {
+    "productName": "Papua Wamena",
+    "description": "Soft and sweet, low acidity with herbal aroma.",
+    "price": 140000,
+    "imageUrl": "https://example.com/img/papua-wamena.jpg",
+    "stock": 18,
+    "UserId": 2
+  },
+  {
+    "productName": "Luwak Coffee",
+    "description": "Smooth, rich, and rare; processed via civet.",
+    "price": 300000,
+    "imageUrl": "https://example.com/img/luwak.jpg",
+    "stock": 12,
+    "UserId": 2
+  },
+  {
+    "productName": "Sulawesi Enrekang",
+    "description": "Medium body with mild fruity acidity and nutty finish.",
+    "price": 132000,
+    "imageUrl": "https://example.com/img/sulawesi-enrekang.jpg",
+    "stock": 22,
+    "UserId": 2
+  },
+  {
+    "productName": "West Java Honey",
+    "description": "Sweet, honey-processed with caramel and tea-like body.",
+    "price": 138000,
+    "imageUrl": "https://example.com/img/west-java-honey.jpg",
+    "stock": 28,
+    "UserId": 2
+  }
+]
