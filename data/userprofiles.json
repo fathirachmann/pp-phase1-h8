@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Admin Barista",
+    "address": "Jl. Kopi No.1, Jakarta",
+    "imageProfile": "https://example.com/img/admin-barista.jpg",
+    "UserId": 1
+  },
+  {
+    "name": "Aulia Ramadhan",
+    "address": "Jl. Kenangan No.8, Bandung",
+    "imageProfile": "https://example.com/img/aulia.jpg",
+    "UserId": 2
+  },
+  {
+    "name": "Rina Darmawan",
+    "address": "Jl. Aroma Kopi No.12, Surabaya",
+    "imageProfile": "https://example.com/img/rina.jpg",
+    "UserId": 3
+  },
+  {
+    "name": "Bayu Saputra",
+    "address": "Jl. Espresso No.7, Yogyakarta",
+    "imageProfile": "https://example.com/img/bayu.jpg",
+    "UserId": 4
+  },
+  {
+    "name": "Nadia Fauziah",
+    "address": "Jl. Latte Art No.4, Semarang",
+    "imageProfile": "https://example.com/img/nadia.jpg",
+    "UserId": 5
+  },
+  {
+    "name": "Fahri Abdullah",
+    "address": "Jl. Cappuccino No.9, Makassar",
+    "imageProfile": "https://example.com/img/fahri.jpg",
+    "UserId": 6
+  },
+  {
+    "name": "Salsa Anjani",
+    "address": "Jl. Kopi Nusantara No.10, Bali",
+    "imageProfile": "https://example.com/img/salsa.jpg",
+    "UserId": 7
+  },
+  {
+    "name": "Damar Gunawan",
+    "address": "Jl. Robusta Raya No.5, Medan",
+    "imageProfile": "https://example.com/img/damar.jpg",
+    "UserId": 8
+  },
+  {
+    "name": "Laras Putri",
+    "address": "Jl. Arabica Indah No.2, Malang",
+    "imageProfile": "https://example.com/img/laras.jpg",
+    "UserId": 9
+  },
+  {
+    "name": "Hendrik Wijaya",
+    "address": "Jl. Barista Cipta No.11, Pontianak",
+    "imageProfile": "https://example.com/img/hendrik.jpg",
+    "UserId": 10
+  }
+]

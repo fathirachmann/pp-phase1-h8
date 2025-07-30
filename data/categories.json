@@ -1,0 +1,12 @@
+[
+  {"beanType": "Arabica", "tasteProfile": "Smooth and sweet with mild acidity" },
+  {"beanType": "Robusta", "tasteProfile": "Strong, bitter, and high caffeine" },
+  {"beanType": "Liberica", "tasteProfile": "Floral and woody with smoky notes" },
+  {"beanType": "Excelsa", "tasteProfile": "Tart and fruity with dark roast profile" },
+  {"beanType": "Geisha", "tasteProfile": "Delicate, floral, and tea-like" },
+  {"beanType": "Honey Process", "tasteProfile": "Sweet and smooth, with fruity tones" },
+  {"beanType": "Wet-Hulled", "tasteProfile": "Earthy and rustic with muted acidity" },
+  {"beanType": "Natural Process", "tasteProfile": "Fruity and bright, sometimes fermented" },
+  {"beanType": "Civet Processed", "tasteProfile": "Silky smooth with low bitterness" },
+  { "beanType": "Organic", "tasteProfile": "Clean, fresh flavor with no chemicals" }
+]
