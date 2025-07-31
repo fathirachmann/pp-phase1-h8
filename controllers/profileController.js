@@ -1,13 +1,15 @@
-const {User, UserProfiles} = require('../models/index');
+const formatRupiah = require('../helpers/formatRupiah');
+const {User, UserProfile} = require('../models/index');
 
 class Controller {
     static async getProfile(req, res) {
         try {
             const {id} = req.params
-            let profileData = await UserProfiles.findByPk(id, {
+            let profileData = await UserProfile.findByPk(id, {
                 include: User
             })
-            res.render('profile', {profileData})
+            console.log(profileData);
+            res.render('profile', {profileData, formatRupiah})
         } catch (error) {
             console.log(error);
             res.send(error)

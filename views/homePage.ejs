@@ -1,15 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kopi Mana Kopi</title>
     <!-- CSS only -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
-
-
+     <style>
+        * {
+            background-color: whitesmoke;
+        }
+        
+        h1 {
+            font-family: 'Lobster', cursive;
+        }
+    </style>
 </head>
-<br>
-
 <body>
+    <%- include('partials/_header') %>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,21 +27,12 @@
 
     <!-- <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> -->
 
-    <style>
-        * {
-            background-color: whitesmoke;
-        }
-        
-        h1 {
-            font-family: 'Lobster', cursive;
-        }
-    </style>
+   
     <div class="opening">
         <h1>Welcome to Kopi Mana Kopi </h1>
         <h2>We are not the 1st BUT We are the Best Coffee Supplier</h2>
-        <p>Please sign up <a href="/signup">here</a>. If you don't have an account</p>
-        <p>If you already have one, please <a href="/login">login.</a></p>
+        <a href="/login">Get Started</a>
+        
     </div>
-
-
-    <%- include('./partials/_footer.ejs') %>
+</body>
+</html>

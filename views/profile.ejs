@@ -6,13 +6,36 @@
     <title>BeliKopi - <%= profileData.dataValues.name %>' Profile</title>
 </head>
 <body>
+    <%- include('partials/_header') %>
+
     <div class="profile-wrapper">
         <h1><%= profileData.dataValues.name %>' Profile</h1>
     <img src="<%= profileData.dataValues.imageProfile %>" alt="">
     <form action="/profiles/<%= profileData.dataValues.id %>">
         <label for="">Username</label>
-        <input type="text" name="" id="">
+        <input type="text" name="username" id="" value="<%= profileData.dataValues.User.dataValues.username %>">
+        <br>
+        <label for="">Name</label>
+        <input type="text" name="name" id="" value="<%= profileData.dataValues.name %>">
+        <br>
+        <label for="">Email</label>
+        <input type="email" name="email" id="" value="<%= profileData.dataValues.User.dataValues.email %>">
+        <br>
+        <label for="">Password</label>
+        <input type="password" name="email" id="" value="<%= profileData.dataValues.User.dataValues.password %>">
+        <br>
+        <label for="">Address</label>
+        <input type="email" name="address" id="" value="<%= profileData.dataValues.address %>">
+        <br>
+        <label for="">Profile Image URL</label>
+        <input type="text" name="imageProfile" id="" value="<%= profileData.dataValues.imageProfile %>">
+        <br>
+        <p>Current balance: <%= formatRupiah(profileData.dataValues.balance) %> <a href="/profiles/<%= profileData.dataValues.id %>/topup"> || Top Up</a></p>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
     </form>
+    <a href="/logout">Log Out</a>
     </div>
 </body>
 </html>

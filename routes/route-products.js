@@ -2,6 +2,16 @@ const express = require('express');
 const Controller = require('../controllers/productController');
 const router = express.Router()
 
+router.use((req, res, next) => {
+	console.log(req.session); // received from postLogin Controller 
+	if (!req.session.userId) {
+		const err = "Please login first"
+		res.redirect(`/login?err=${err}`)
+		console.log('Time:', Date.now(), "<<Mw One")
+	} else { 
+  next()}
+})
+
 router.get('/', Controller.getProduct)
 router.get('/add', Controller.getAddProduct)
 router.post('/add', Controller.postAddProduct)
