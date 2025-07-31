@@ -6,6 +6,7 @@ const indexRoute = require('./indexRouter');
 
 router.use('/profiles', profileRoute)
 router.use('/products', productRoute)
+
 router.use('/', indexRoute)
 
 module.exports = router

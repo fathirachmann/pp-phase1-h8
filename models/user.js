@@ -1,7 +1,7 @@
 'use strict';
 //BCryptJS Password Hashing
 const bcrypt = require('bcryptjs');
-const salt = bcrypt.genSaltSync(10);
+// const salt = bcrypt.genSaltSync(10);
 const {
   Model
 } = require('sequelize');
@@ -73,8 +73,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     hooks: {
       beforeCreate(User, options) { // Bcrypt create password hashing
-        User.password = bcrypt.hash(User.password, salt),
+        // console.log(User, "User is instance be4 create");
+        const salt = bcrypt.genSaltSync(8);
+        // const salt = bcrypt.hashSync(8)
+        const hash = bcrypt.hashSync(User.password, salt)
+        // User.password = bcrypt.hash(User.password, salt),
         User.role = 'user'
+        User.password = hash
+        
       },
       beforeUpdate(User, options) { // Bcrypt change password hashing
         if (User.changed('password')) {
