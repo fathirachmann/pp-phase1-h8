@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BeliKopi - Our Products</title>
+    <link rel="stylesheet" href="/assets/styles/product.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+
+    <main class="products-container">
+      <section class="header-section">
+        <h1>Our Coffee Selection</h1>
+        <form action="/products" method="get" class="search-form">
+          <input type="search" name="name" placeholder="Search by name" />
+          <input type="search" name="taste" placeholder="Search by taste" />
+          <input type="submit" value="Search" />
+        </form>
+
+        <a href="/products/add" class="add-product-btn">+ Add New Product</a>
+      </section>
+
+      <div class="side-bar">
+        <h3>Filter by Bean Type:</h3>
+        <a href="/products?filter=" class="side-btn">All</a>
+        <% categoryData.forEach(el => { %>
+        <a href="/products?filter=<%= el.beanType %>" class="side-btn"><%= el.beanType %></a>
+        <% }) %>
+        </div>
+          <% if (productData) { %> 
+            <section class="card-wrapper">
+              <% productData.forEach(el => { %>
+              <div class="card">
+                <img src="<%= el.imageUrl %>" alt="<%= el.productName %>" />
+                <div class="container">
+                  <h4><%= el.productName %></h4>
+                  <p><%= el.description %></p>
+                  <p class="price"><%= el.price%></p>
+                  <div class="tags">
+                    <% el.Categories.forEach(cat => { %>
+                    <span class="bean-btn"><%= cat.beanType %></span>
+                    <% }) %>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="/products/<%= el.id %>" class="edit">View Details</a>
+                </div>
+              </div>
+              <% }) %>
+            </section>
+          <% } else { %>
+            <p>No Product Found, Sorry...</p>
+          <% } %>
+    </main>
+  </body>
+</html>

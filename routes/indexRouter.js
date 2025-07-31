@@ -1,8 +1,7 @@
 const express = require('express');
+const session = require('express-session');
 const Controller = require('../controllers/indexController');
 const router = express.Router()
-
-
 
 router.get('/', Controller.home)
 
