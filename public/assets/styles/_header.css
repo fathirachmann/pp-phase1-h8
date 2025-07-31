@@ -32,7 +32,7 @@
   color: #3e2c1c;
 }
 
-/* To be used for landing page */
+/* Customr to be used for landing page */
 /* General background */
 body {
   background-color: whitesmoke;
@@ -70,4 +70,37 @@ body {
 .opening-card a.btn:hover {
   background-color: #6b4226;
   color: white;
+}
+
+/* Custom for Login with card styling */
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fffdf8;
+  border: 1px solid #e0d4c2;
+  border-radius: 15px;
+}
+
+/* Avatar image styling */
+.login-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* Login heading */
+.login-card h2 {
+  font-family: 'Lobster', cursive;
+  color: #6b4226;
+}
+
+/* Form labels */
+.login-card label {
+  font-weight: 500;
+  color: #3e2c1c;
+}
+
+/* Buttons */
+.login-card .btn {
+  border-radius: 20px;
 }
