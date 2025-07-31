@@ -6,7 +6,7 @@
     <title>Edit <%= product.dataValues.productName %></title>
 </head>
 <body>
-    <%- include('partials/_header') %>
+    <%- include('partials/_header', {session: req.session}) %>
 
     <h1>Edit Product: <%= product.dataValues.name %></h1>
     <img src="<%= product.dataValues.imageUrl %>" alt="" style="width: 200px;">

@@ -1,10 +1,11 @@
-const { User } = require("../models/index");
+const { User, UserProfile } = require("../models/index");
 const bcryptjs = require("bcryptjs");
+const userprofile = require("../models/userprofile");
 
 class indexController {
   static async home(req, res) {
     try {
-      res.render("homePage");
+      res.render("homePage", {req});
     } catch (err) {
       console.log(err, "from homePage indexController");
       res.send(err);
@@ -14,7 +15,7 @@ class indexController {
   static async login(req, res) {
     try {
       const { err } = req.query
-      res.render("login", { err} );
+      res.render("login", { err, req } );
     } catch (err) {
       console.log(err, "from login indexController");
       res.send(err);
@@ -58,7 +59,7 @@ class indexController {
 
   static async signup(req, res) {
     try {
-      res.render("signup");
+      res.render("signup", {req});
     } catch (err) {
       console.log(err, "from signup indexController");
       res.send(err);
@@ -71,6 +72,8 @@ class indexController {
       const { username, email, password, role } = req.body;
       // const { username, email, password} = req.body;
       let newUser = await User.create({ username, email, password, role });
+      let id = newUser.dataValues.id
+      await UserProfile.create({UserId: id})
 
       res.redirect("/login");
     } catch (err) {
@@ -82,7 +85,7 @@ class indexController {
   static async logout(req, res) {
     try {
       req.session.destroy();
-      res.render("/");
+      res.redirect("/login");
     } catch (err) {
       console.log(err, "from logout indexController");
       res.send(err);

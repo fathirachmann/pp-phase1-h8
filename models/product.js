@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { Op } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -25,6 +26,39 @@ module.exports = (sequelize, DataTypes) => {
       return data.decrement({
         stock: buy
       })
+    }
+
+    static async search(filter, name, taste) {
+      let options = {
+            order: [
+                ['stock', 'DESC']
+            ],
+            include: {
+                model: sequelize.models.Category
+            }
+        }
+
+        if (filter) {
+            options.include.where = {
+                beanType: filter
+            }
+        }
+
+        if (name) {
+            options.where = {
+                productName: {
+                    [Op.iLike]: `%${name}%`
+                }
+            }
+        }
+        if (taste) {
+            options.include.where = {
+                tasteProfile: {
+                    [Op.iLike]: `%${taste}%`
+                }
+            }
+        }
+        return await Product.findAll(options)
     }
   }
   Product.init({

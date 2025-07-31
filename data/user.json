@@ -54,9 +54,9 @@
     "role": "user"
   },
   {
-     "username": "coffeecode",
-    "email": "user9@example.com",
-    "password": "hashed_pw_9",
+     "username": "adminwalid",
+    "email": "walid@walidin.com",
+    "password": "$2b$08$TxzfjvneeamMmatQSakqzOShnB9rcA2tWFvhzFUuNUDJN8Hqo29KC",
     "role": "admin"
   }
 ]

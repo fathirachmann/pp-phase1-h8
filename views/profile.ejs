@@ -6,7 +6,7 @@
     <title>BeliKopi - <%= profileData.dataValues.name %>' Profile</title>
 </head>
 <body>
-    <%- include('partials/_header') %>
+    <%- include('partials/_header', {session: req.session}) %>
 
     <div class="profile-wrapper">
         <h1><%= profileData.dataValues.name %>' Profile</h1>
@@ -22,7 +22,7 @@
         <input type="email" name="email" id="" value="<%= profileData.dataValues.User.dataValues.email %>">
         <br>
         <label for="">Password</label>
-        <input type="password" name="email" id="" value="<%= profileData.dataValues.User.dataValues.password %>">
+        <input type="password" name="password" id="" placeholder="New Password?">
         <br>
         <label for="">Address</label>
         <input type="email" name="address" id="" value="<%= profileData.dataValues.address %>">

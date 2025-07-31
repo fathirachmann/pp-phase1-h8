@@ -11,8 +11,8 @@
     />
   </head>
   <body>
-    <%- include('partials/_header') %>
-
+    <%- include('partials/_header', {session: req.session}) %>
+    <%= console.log(req.session); %>
     <main class="products-container">
       <section class="header-section">
         <h1>Our Coffee Selection</h1>

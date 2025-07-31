@@ -6,6 +6,8 @@
     <title>BeliKopi - </title>
 </head>
 <body>
+    <%- include('partials/_header', {session: req.session}) %>
+
     <h1>Buy Product</h1>
     <form action="/products/<%= product.id %>/buy" method="post">
         <img src="<%= product.imageUrl %>" alt="" style="width: 300px;">

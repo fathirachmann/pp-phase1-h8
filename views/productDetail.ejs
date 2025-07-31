@@ -7,30 +7,40 @@
     <link rel="stylesheet" href="/assets/styles/productDetail.css">
 </head>
 <body>
-    <h1><%= productData.dataValues.productName %> Product Detail</h1>
-    <div class="wrapper">
-        <div class="image">
-            <img src="<%= productData.dataValues.imageUrl %>" alt="" style="width: 200px;">
+    <%- include('partials/_header', {session: req.session}) %>
+
+    <main class="product-card">
+        <div class="product-image">
+            <img src="<%= productData.dataValues.imageUrl %>" alt="Coffee Image">
         </div>
-        <p>Product Name: <%= productData.dataValues.productName %></p>
-        <div class="description">
-            <p>Desrciption: <%= productData.dataValues.description %></p>
+        <div class="product-details">
+            <h1><%= productData.dataValues.productName %></h1>
+            <p><strong>Description:</strong> <%= productData.dataValues.description %></p>
+            
+            <p><strong>Bean Type:</strong></p>
+            <div class="bean-types">
+                <% productData.dataValues.Categories.forEach(el => { %>
+                    <button><%= el.dataValues.beanType %></button>
+                <% }) %>
+            </div>
+
+            <p><strong>Taste Profile:</strong></p>
+            <div class="taste-profile">
+                <% productData.dataValues.Categories.forEach(el => { %>
+                    <span><%= el.dataValues.tasteProfile %> from <%= el.dataValues.beanType %> beans.</span><br>
+                <% }) %>
+            </div>
+
+            <p><strong>Price:</strong> <%= formatRupiah(productData.dataValues.price) %></p>
+            <p><strong>Stock:</strong> <%= productData.dataValues.stock %></p>
+
+            <div class="action-buttons">
+                <% if (req.session.role === 'admin') { %>
+                    <a href="/products/<%= productData.dataValues.id %>/edit" class="edit-btn">Edit</a>
+                <% } %>
+                <a href="/products/<%= productData.dataValues.id %>/buy" class="buy-btn">Buy</a>
+            </div>
         </div>
-        <label for="">Bean Type:</label>
-        <% productData.dataValues.Categories.forEach(el => { %>
-            <button><%= el.dataValues.beanType %></button>
-        <% }) %>
-        <br>
-        <label for="">Taste Profile: </label>
-        <% productData.dataValues.Categories.forEach(el => { %>
-            <span><%= el.dataValues.tasteProfile %> from <%= el.dataValues.beanType %> beans. </span>
-        <% }) %>
-        <br>
-        <p>Price: <%= formatRupiah(productData.dataValues.price) %></p>
-        <p>Stock: <%= productData.dataValues.stock %></p>
-        <br>
-        <a href="/products/<%= productData.dataValues.id %>/edit">Edit</a>
-        <a href="/products/<%= productData.dataValues.id %>/buy">Buy</a>
-    </div>
+    </main>
 </body>
 </html>

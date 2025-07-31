@@ -6,36 +6,7 @@ class Controller {
     static async getProduct(req, res) {
         try {
             const {filter, name, taste} = req.query
-            let options = {
-                order: [
-                    ['stock', 'DESC']
-                ],
-                include: {
-                    model: Category
-                }
-            }
-
-            if (filter) {
-                options.include.where = {
-                    beanType: filter
-                }
-            }
-
-            if (name) {
-                options.where = {
-                    productName: {
-                        [Op.iLike]: `%${name}%`
-                    }
-                }
-            }
-            if (taste) {
-                options.include.where = {
-                    tasteProfile: {
-                        [Op.iLike]: `%${taste}%`
-                    }
-                }
-            }
-            let productData = await Product.findAll(options)
+            let productData = await Product.search(filter, name, taste)
             let categoryData = await Category.findAll()
             res.render('product', {productData, categoryData, formatRupiah, req})
         } catch (error) {
@@ -47,7 +18,7 @@ class Controller {
     static async getAddProduct(req, res) {
         try {
             let categoryData = await Category.findAll()
-            res.render('addProduct', {categoryData})
+            res.render('addProduct', {categoryData, req})
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -87,7 +58,7 @@ class Controller {
             let productData = await Product.findByPk(id, {
                 include: Category
             })
-            res.render('productDetail', {productData, formatRupiah})
+            res.render('productDetail', {productData, formatRupiah, req})
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -101,7 +72,7 @@ class Controller {
                 include: Category
             })
             let categoryData = await Category.findAll()
-            res.render('editProduct', {product, categoryData})
+            res.render('editProduct', {product, categoryData, req})
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -155,7 +126,7 @@ class Controller {
         try {
             const {id} = req.params
             let product = await Product.findByPk(id)
-            res.render('buyProduct', {product})
+            res.render('buyProduct', {product, req})
         } catch (error) {
             console.log(error);
             res.send(error)

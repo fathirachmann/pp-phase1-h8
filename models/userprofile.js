@@ -21,8 +21,32 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     imageProfile: DataTypes.STRING,
     UserId: DataTypes.INTEGER,
-    balance: DataTypes.INTEGER
+    balance: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: {
+          args: 0,
+          msg: 'Not enough balance'
+        },
+        addBalance(value) {
+          if (value < 10000) {
+            throw new Error('Top up minimum amount is Rp. 10.000,00 ')
+          }
+        }
+      }
+    },
   }, {
+    hooks: {
+      beforeCreate(instance, options) {
+        instance.name = 'User'
+        instance.address = 'Set your address'
+        instance.balance = 0
+        instance.imageProfile = 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'
+      },
+      beforeUpdate(instance, options) {
+
+      }
+    },
     sequelize,
     modelName: 'UserProfile',
   });

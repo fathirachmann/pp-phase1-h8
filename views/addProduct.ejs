@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/styles/addProduct.css">
 </head>
 <body>
-    <%- include('partials/_header') %>
+    <%- include('partials/_header', {session: req.session}) %>
 
     <h1>Add New Product</h1>
     <form action="/products/add" method="post">
