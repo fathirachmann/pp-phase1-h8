@@ -19,6 +19,7 @@ app.use(express.urlencoded({extended: true}))
 
 
 
+app.use(express.static('public'));
 app.use(router)
 
 app.listen(port, () => {

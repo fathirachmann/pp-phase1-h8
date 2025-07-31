@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const Controller = require('../controllers/indexController');
 const productRouter = require('../routes/route-products');
 

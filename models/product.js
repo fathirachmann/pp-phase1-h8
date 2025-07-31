@@ -19,15 +19,97 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'UserId'
       }) 
     }
+
+    static async buyProduct(id, buy) {
+      let data = await Product.findByPk(id)
+      return data.decrement({
+        stock: buy
+      })
+    }
   }
   Product.init({
-    productName: DataTypes.STRING,
-    description: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    imageUrl: DataTypes.STRING,
-    stock: DataTypes.INTEGER,
+    productName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: `Product Name cannot be empty`
+        },
+        notNull: {
+          args: true,
+          msg: `Product Name cannot be null`
+        },
+      }
+    },
+    description:  {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: `Description cannot be empty`
+        },
+        notNull: {
+          args: true,
+          msg: `Description cannot be null`
+        },
+      }
+    },
+    price:  {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: `Price cannot be empty`
+        },
+        notNull: {
+          args: true,
+          msg: `Price cannot be null`
+        },
+      }
+    },
+    imageUrl:  {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: `ImageURL cannot be empty`
+        },
+        notNull: {
+          args: true,
+          msg: `ImageURL cannot be null`
+        },
+      }
+    },
+    stock:  {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          args: true,
+          msg: `Stock cannot be empty`
+        },
+        notNull: {
+          args: true,
+          msg: `Stock cannot be null`
+        }
+      }
+    },
     UserId: DataTypes.INTEGER
   }, {
+    hooks: {
+      beforeCreate(Product, options) {
+        Product.UserId = 1
+      },
+      beforeUpdate(Product, options) {
+        if (Product.stock < 0) {
+          return new Error(`Cannot order more than ${Product.stock}`)
+        }
+      }
+    },
     sequelize,
     modelName: 'Product',
   });

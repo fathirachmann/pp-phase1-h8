@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       validate: {
         len: {
-          args: [6],
+          args: [8],
           msg: 'username must be at least 6 characters long'
         },
         notEmpty: {
@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: {
-          agrs: [6],
+          agrs: [8],
           msg: 'password must be at least 6 characters long'
         },
       }
