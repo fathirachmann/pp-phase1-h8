@@ -31,3 +31,43 @@
 .navbar nav a:hover {
   color: #3e2c1c;
 }
+
+/* To be used for landing page */
+/* General background */
+body {
+  background-color: whitesmoke;
+  font-family: Arial, sans-serif;
+}
+
+/* Override for the main opening card */
+.opening-card {
+  max-width: 600px;
+  background-color: #fffdf8;
+  border: 1px solid #e0d4c2;
+}
+
+/* Lobster font for main title */
+.opening-card h1 {
+  font-family: 'Lobster', cursive;
+  color: #6b4226;
+}
+
+/* Subheading */
+.opening-card h2 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #3e2c1c;
+}
+
+/* For Button on main page */
+.opening-card a.btn {
+  padding: 10px 25px;
+  font-weight: 500;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.opening-card a.btn:hover {
+  background-color: #6b4226;
+  color: white;
+}

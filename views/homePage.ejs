@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kopi Mana Kopi</title>
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-     <style>
-        * {
-            background-color: whitesmoke;
-        }
-        h1 {
-            font-family: 'Lobster', cursive;
-        }
-    </style>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles/_header.css">
 </head>
 <body>
     <%- include('partials/_header') %>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav> -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="text-center opening-card shadow p-5 rounded bg-white">
+            <h1 class="mb-4">Welcome to Kopi Mana Kopi</h1>
 
-   
-    <div class="opening">
-        <h1>Welcome to Kopi Mana Kopi </h1>
-        <h2>We are not the 1st BUT We are the Best Coffee Supplier</h2>
-        <a href="/login">Get Started</a>
-        
+            <img src="https://as2.ftcdn.net/v2/jpg/01/62/74/67/1000_F_162746788_uxm2CkE5xQq2fy7DVJASe40lMcvSQ52A.jpg" alt="Coffee Bean and Cup" class="img-fluid mb-4" style="max-height: 200px;">
+
+            <h2 class="mb-4">We are not the 1st BUT We are the Most Trusted Coffee Supplier</h2>
+            
+            <a href="/login" class="btn btn-outline-dark">Get Started</a>
+        </div>
     </div>
 </body>
 </html>
