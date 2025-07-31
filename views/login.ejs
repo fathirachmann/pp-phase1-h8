@@ -16,6 +16,9 @@
         <button type="submit">Login</button>
     </form>
     <hr>
-    
+    <% if (err) { %>
+     <div style="color: red;"><strong><%= err %></strong></div>
+     <!-- <hr> -->
+    <% } %>
 </body>
 </html>
