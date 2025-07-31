@@ -4,13 +4,7 @@ const Controller = require('../controllers/indexController');
 const productRouter = require('../routes/route-products');
 
 const router = express.Router()
-
-
-app.use('/product', productRouter);
-
-
 router.get('/', Controller.home)
-
 router.get('/signup', Controller.signup)
 router.post('/signup', Controller.validate)
 
