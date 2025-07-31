@@ -104,3 +104,44 @@ body {
 .login-card .btn {
   border-radius: 20px;
 }
+
+/* Custom for Signup with card style */
+.signup-card {
+  max-width: 900px;
+  width: 100%;
+  border: 1px solid #e0d4c2;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Image section */
+.signup-image {
+  flex: 1;
+  min-width: 300px;
+  background-color: #f7f1eb;
+}
+
+.signup-image img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Form section */
+.signup-form {
+  flex: 1;
+  background-color: #fffdf8;
+}
+
+.signup-form h2 {
+  font-family: 'Lobster', cursive;
+  color: #6b4226;
+}
+
+.signup-form label {
+  font-weight: 500;
+  color: #3e2c1c;
+}
+
+.signup-form .btn {
+  border-radius: 20px;
+}
