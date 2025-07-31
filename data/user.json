@@ -1,13 +1,13 @@
 [
   {
     "username": "admincoffee",
-    "email": "admin@coffeestore.com",
-    "password": "hashed_admin_pw",
+    "email": "admin@BeliKopi.com",
+    "password": "admin",
     "role": "admin"
   },
   {
     "username": "coffeelover22",
-    "email": "user1@example.com",
+    "email": "user1@gmail.com",
     "password": "hashed_pw_1",
     "role": "user"
   },
