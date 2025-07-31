@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeliKopi - </title>
+</head>
+<body>
+    <h1>Buy Product</h1>
+    <form action="/products/:id/buy" method="post">
+        <img src="<%= product.imageUrl %>" alt="" style="width: 500px;">
+        <p>Product: <%= product.productName %></p>
+        <p>Stock: <%= product.stock %></p>
+        <label for="">Quantity:</label>
+        <input type="number" name="buy" id="" max="<%= product.stock %>" placeholder="Bag"> Bag
+        <br>
+        <input type="submit" value="Buy!">
+    </form>
+</body>
+</html>

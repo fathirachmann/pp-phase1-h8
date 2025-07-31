@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beli Kopi - <%= productData.productName %></title>
+    <title>Beli Kopi - <%= productData.dataValues.productName %></title>
+    <link rel="stylesheet" href="/assets/styles/productDetail.css">
 </head>
 <body>
-    
+    <h1><%= productData.dataValues.productName %> Product Detail</h1>
+    <div class="wrapper">
+        <div class="image">
+            <img src="<%= productData.dataValues.imageUrl %>" alt="" style="width: 200px;">
+        </div>
+        <p>Product Name: <%= productData.dataValues.productName %></p>
+        <div class="description">
+            <p>Desrciption: <%= productData.dataValues.description %></p>
+        </div>
+        <label for="">Bean Type:</label>
+        <% productData.dataValues.Categories.forEach(el => { %>
+            <button><%= el.dataValues.beanType %></button>
+        <% }) %>
+        <br>
+        <label for="">Taste Profile: </label>
+        <% productData.dataValues.Categories.forEach(el => { %>
+            <span><%= el.dataValues.tasteProfile %> from <%= el.dataValues.beanType %> beans. </span>
+        <% }) %>
+        <br>
+        <p>Price: <%= formatRupiah(productData.dataValues.price) %></p>
+        <p>Stock: <%= productData.dataValues.stock %></p>
+        <br>
+        <a href="/products/<%= productData.dataValues.id %>/edit">Edit</a>
+        <a href="/products/<%= productData.dataValues.id %>/buy">Buy</a>
+    </div>
 </body>
 </html>

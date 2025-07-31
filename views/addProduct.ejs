@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeliKopi - Add new Product</title>
+    <link rel="stylesheet" href="/assets/styles/addProduct.css">
 </head>
 <body>
+    <%- include('partials/_header') %>
+
     <h1>Add New Product</h1>
     <form action="/products/add" method="post">
         <label for="">Coffee Name</label>
         <input type="text" name="productName" id="">
         <br>
         <label for="">Price</label>
-        <input type="text" name="price" id="">
+        <input type="number" name="price" id="">
         <br>
         <label for="">Stock</label>
         <input type="text" name="stock" id="">
         <br>
         <label for="">Image URL</label>
-        <input type="text" name="imageUrl" id="">
+        <input type="number" name="imageUrl" id="">
         <br>
         <label for="">Bean Type</label>
         <select name="CategoryId" id="">

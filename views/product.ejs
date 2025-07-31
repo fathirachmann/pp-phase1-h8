@@ -41,7 +41,7 @@
                   <h4><%= el.productName %></h4>
                   <p><%= el.description %></p>
                   <P>Stock: <%= el.stock %></P>
-                  <p class="price"><%= formatRupiah(el.price)%>/Kg</p>
+                  <p class="price"><%= formatRupiah(el.price)%>/Bag</p>
                   <div class="tags">
                     <% el.Categories.forEach(elem => { %>
                     <span class="bean-btn"><%= elem.beanType %></span>

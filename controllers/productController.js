@@ -1,5 +1,5 @@
 const {Category, Product, productCategory} = require('../models/index');
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 const formatRupiah = require('../helpers/formatRupiah');
 
 class Controller {
@@ -7,6 +7,9 @@ class Controller {
         try {
             const {filter, name, taste} = req.query
             let options = {
+                order: [
+                    ['stock', 'DESC']
+                ],
                 include: {
                     model: Category
                 }
@@ -34,7 +37,6 @@ class Controller {
             }
             let productData = await Product.findAll(options)
             let categoryData = await Category.findAll()
-            console.log(Category);
             res.render('product', {productData, categoryData, formatRupiah})
         } catch (error) {
             console.log(error);
@@ -54,18 +56,23 @@ class Controller {
 
     static async postAddProduct(req, res) {
         try {
-            let {productName, price, stock, imageUrl, CategoryId, description} = req.body
-            await Product.create({productName, price, stock, imageUrl, description})
-            let data = await Product.findAll()
-            data = data[data.length-1]
-            let ProductId = data.dataValues.id
-            
-            if (CategoryId.length > 1) {
+            let {productName, price, stock, imageUrl, CategoryId, description} = req.body;
+            await Product.create({productName, price, stock, imageUrl, description});
+            let data = await Product.findAll({
+                order: [
+                    ['id', 'ASC']
+                ]
+            });
+            data = data[data.length-1];
+            let ProductId = data.dataValues.id;
+            if (CategoryId) {
+                productCategory.create({ProductId, CategoryId});
+            } else if (CategoryId.length > 1) {
                 CategoryId.forEach(el => {
                     productCategory.create({ProductId, CategoryId: +el})
                 });
             }
-            res.redirect('/products')
+            res.redirect('/products');
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -75,9 +82,10 @@ class Controller {
     static async productDetail(req, res) {
         try {
             const {id} = req.params
-            let productData = await Product.findByPk(id)
-            console.log(`<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
-            res.render('productDetail', {productData})
+            let productData = await Product.findByPk(id, {
+                include: Category
+            })
+            res.render('productDetail', {productData, formatRupiah})
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -86,8 +94,12 @@ class Controller {
 
     static async getEditProduct(req, res) {
         try {
+            const {id} = req.params
+            let product = await Product.findByPk(id, {
+                include: Category
+            })
             let categoryData = await Category.findAll()
-            res.render('addProduct', {categoryData})
+            res.render('editProduct', {product, categoryData})
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -95,8 +107,27 @@ class Controller {
     }
     static async postEditProduct(req, res) {
         try {
-            let categoryData = await Category.findAll()
-            res.render('addProduct', {categoryData})
+            const {id} = req.params
+            let {productName, price, stock, imageUrl, CategoryId, description} = req.body;
+            await Product.update({productName, price, stock, imageUrl, CategoryId, description}, {
+                where: {
+                    id: id
+                }
+            })
+            let ProductId = id
+            if (CategoryId) {
+                productCategory.update({ProductId, CategoryId})
+            } else if (CategoryId.length > 1) {
+                CategoryId.forEach(el => {
+                    productCategory.update({ProductId, CategoryId: +el}, {
+                        where: {
+                            ProductId: id,
+                            CategoryId: +el
+                        }
+                    })
+                })
+            }
+            res.redirect(`/products/${id}`)
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -105,18 +136,36 @@ class Controller {
     static async deleteProduct(req, res) {
         try {
             const {id} = req.params
-            let categoryData = await Category.findAll()
-            res.render('addProduct', {categoryData})
+            await Product.destroy({
+                where: {
+                    id: id
+                }
+            })
+            res.redirect('/products')
         } catch (error) {
             console.log(error);
             res.send(error)
         }
     }
-    static async buyProduct(req, res) {
+    static async getBuyProduct(req, res) {
         try {
             const {id} = req.params
-            let categoryData = await Category.findAll()
-            res.render('addProduct', {categoryData})
+            let product = await Product.findByPk(id)
+            res.render('buyProduct', {product})
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
+    }
+    static async postBuyProduct(req, res) {
+        try {
+            const {id} = req.params
+            const {buy} = req.body
+            let data = await Product.findByPk(id)
+            await data.decrement({
+                stock: buy
+            })
+            res.redirect('/products')
         } catch (error) {
             console.log(error);
             res.send(error)

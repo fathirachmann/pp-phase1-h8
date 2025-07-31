@@ -9,7 +9,7 @@ router.get('/:id', Controller.productDetail)
 router.get('/:id/edit', Controller.getEditProduct)
 router.post('/:id/edit', Controller.postEditProduct)
 router.get('/:id/delete', Controller.deleteProduct)
-router.get('/:id/buy', Controller.buyProduct)
-
+router.get('/:id/buy', Controller.getBuyProduct)
+router.post('/:id/buy', Controller.postBuyProduct)
 
 module.exports = router
