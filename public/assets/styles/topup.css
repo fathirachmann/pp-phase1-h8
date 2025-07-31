@@ -3,7 +3,7 @@ body {
   background-color: #fdfaf6;
   color: #4b3b2a;
   padding: 40px;
-  max-width: 800px;
+  max-width: 600px;
   margin: 80px auto;
   line-height: 1.6;
 }
@@ -19,7 +19,8 @@ form {
   padding: 30px;
   border-radius: 8px;
   border: 1px solid #e0d4c2;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
 }
 
 label {
@@ -29,12 +30,9 @@ label {
   color: #5a3924;
 }
 
-input[type="text"],
-input[type="number"],
-textarea,
-select {
+input[type="number"] {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 0px;
   margin-top: 6px;
   margin-bottom: 15px;
   border: 1px solid #d6c2aa;
@@ -42,31 +40,35 @@ select {
   background-color: #fffaf2;
   color: #3e2b1f;
   font-size: 14px;
-  box-sizing: border-box;
-}
-
-select[multiple] {
-  height: 120px;
 }
 
 input[type="submit"] {
   background-color: #a9745f;
   color: white;
-  padding: 12px 20px;
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
 
 input[type="submit"]:hover {
   background-color: #8a5d47;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 100px;
+p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+img {
+  display: block;
+  margin: 10px auto;
+  width: 200px;
+  height: 200px;
+  border: 1px dashed #cbb7a0;
+  padding: 10px;
+  background-color: #fffaf2;
 }

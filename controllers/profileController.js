@@ -1,6 +1,8 @@
 const formatRupiah = require('../helpers/formatRupiah');
+const QRCode = require('qrcode');
 const {User, UserProfile} = require('../models/index');
 const { validate } = require('./indexController');
+const port = require('../app');
 
 class Controller {
     static async getProfile(req, res) {
@@ -31,7 +33,10 @@ class Controller {
     static async getTopUp(req, res) {
         try {
             const {id} = req.params
-            res.render('topup', req)
+            const route = `https://localhost:${port}/profiles/${id}/topup`
+            const qrImage = await QRCode.toDataURL(route)
+            let profile = await UserProfile.findByPk(id)
+            res.render('topup', {profile, req, qrImage})
         } catch (error) {
             console.log(error);
             res.send(error)

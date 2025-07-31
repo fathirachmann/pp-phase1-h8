@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeliKopi - <%= product.productName %></title>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeliKopi - </title>
+    <link rel="stylesheet" href="/assets/styles/buyProduct.css">
+</head>
 </head>
 <body>
     <%- include('partials/_header', {session: req.session}) %>
 
     <h1>Buy Product</h1>
-    <form action="/products/<%= product.id %>/buy" method="post">
+    <form action="/products/<%= product.id %>/buy?user=<%= req.session.userId %>" method="post">
         <img src="<%= product.imageUrl %>" alt="" style="width: 300px;">
         <p>Product: <%= product.productName %></p>
+        <p>Price: <%= formatRupiah(product.price) %> / Bag</p>
         <p>Stock: <%= product.stock %></p>
         <label for="">Quantity:</label>
         <input type="number" name="buy" id="" placeholder="Bag"> Bag

@@ -1,4 +1,4 @@
-const {Category, Product, productCategory} = require('../models/index');
+const {Category, Product, productCategory, UserProfile} = require('../models/index');
 const { Op, where } = require('sequelize');
 const formatRupiah = require('../helpers/formatRupiah');
 
@@ -90,7 +90,7 @@ class Controller {
                 }
             })
             let ProductId = id
-            if (CategoryId) {
+            if (CategoryId && !Array.isArray(CategoryId)) {
                 productCategory.update({ProductId, CategoryId})
             } else if (CategoryId.length > 1) {
                 CategoryId.forEach(el => {
@@ -126,7 +126,7 @@ class Controller {
         try {
             const {id} = req.params
             let product = await Product.findByPk(id)
-            res.render('buyProduct', {product, req})
+            res.render('buyProduct', {product, req, formatRupiah, UserProfile})
         } catch (error) {
             console.log(error);
             res.send(error)
@@ -134,8 +134,12 @@ class Controller {
     }
     static async postBuyProduct(req, res) {
         try {
+            const { user } = req.query
             const { id } = req.params
             const { buy } = req.body
+            let data = await Product.findByPk(id)
+            data = data.price
+            await UserProfile.buyProduct(user, buy, data)
             await Product.buyProduct(id, buy)
             res.redirect('/products')
         } catch (error) {

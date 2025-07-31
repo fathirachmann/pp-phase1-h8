@@ -23,4 +23,5 @@ app.listen(port, () => {
     console.log(`Listening to port ${port}`)
 })
 
+module.exports = port
 // Skeleton Code, add anything as needed

@@ -15,6 +15,24 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'UserId'
       })
     }
+    static getBalance(id) {
+      let data = UserProfile.findByPk(id)
+      return data.balance
+    }
+    static async buyProduct(id, buy, price) {
+      let totalPrice = price * buy;
+      const profile = await UserProfile.findByPk(id)
+      const newBalance = profile.balance - totalPrice;
+      const result = await UserProfile.update({
+         balance: newBalance 
+        },
+        { where: {
+           id 
+          } 
+        }
+      )
+      return result
+    }
   }
   UserProfile.init({
     name: DataTypes.STRING,
@@ -43,9 +61,6 @@ module.exports = (sequelize, DataTypes) => {
         instance.balance = 0
         instance.imageProfile = 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'
       },
-      beforeUpdate(instance, options) {
-
-      }
     },
     sequelize,
     modelName: 'UserProfile',
