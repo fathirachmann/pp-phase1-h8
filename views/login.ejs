@@ -6,6 +6,8 @@
     <title>Log In</title>
 </head>
 <body>
+    <%- include('partials/_header') %>
+    
     <h1>Log In</h1>
     <hr>
     <form action="/login" method="POST">
@@ -15,6 +17,8 @@
         <input type="password" name="password"><br><br>
         <button type="submit">Login</button>
     </form>
+    <p>Please sign up <a href="/signup">here</a>. If you don't have an account</p>
+    
     <hr>
     <% if (err) { %>
      <div style="color: red;"><strong><%= err %></strong></div>

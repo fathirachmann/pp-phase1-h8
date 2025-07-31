@@ -33,13 +33,13 @@ class indexController {
 
         // if pwd is correct to login page
         if (isValidPassword) {
-
           //adding req.session to leave the trace
           // set in controller login > where to check ? in router after login, global MW
           // userId is the name we can create
           req.session.userId = user.id
+          req.session.role = user.role
           console.log(req.session, "req session fr controller");
-          return res.redirect("/product"); 
+          return res.redirect("/products"); 
           // if userpwd is incorrect redirect to login
         } else {
           const err = "Your email / password is invalid.";

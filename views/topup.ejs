@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up</title>
+</head>
+<body>
+    <%- include('partials/_header') %>
+    
+    <h1>Top Up Balance</h1>
+    <form action="/profiles/<%= profile.id %>/topup">
+        <label for="">Top Up Amount</label>
+        <input type="number" name="balance" id="" min="10000">
+        <br>
+        <br>
+        <input type="submit" value="Top Up!">
+    </form>
+    <p>OR USE QRCODE:</p>
+    <!-- <img src="" alt=""> -->
+</body>
+</html>

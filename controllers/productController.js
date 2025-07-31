@@ -37,7 +37,7 @@ class Controller {
             }
             let productData = await Product.findAll(options)
             let categoryData = await Category.findAll()
-            res.render('product', {productData, categoryData, formatRupiah})
+            res.render('product', {productData, categoryData, formatRupiah, req})
         } catch (error) {
             console.log(error);
             res.send(error)

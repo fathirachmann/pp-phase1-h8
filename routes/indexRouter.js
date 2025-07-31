@@ -10,7 +10,6 @@ router.use('/product', productRouter);
 
 
 router.get('/', Controller.home)
-
 router.get('/signup', Controller.signup)
 router.post('/signup', Controller.validate)
 
