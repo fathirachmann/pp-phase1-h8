@@ -38,4 +38,4 @@
 1. Creating log in system using middleware, session and BCryptJS
 2. Creating unique feature using unique Packages (QRCode, JSChart)
 
-## PAIR PROJECT THEME: E-COMMERCE
+## PAIR PROJECT THEME: E-COMMERCE - BeliKopi.com
