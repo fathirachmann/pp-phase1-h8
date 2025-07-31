@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
-<<<<<<<<< Temporary merge branch 1
+
+const indexRoute = require('./indexRouter');
 const profileRoute = require('./route-profiles');
 const productRoute = require('./route-products');
 
