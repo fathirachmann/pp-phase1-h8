@@ -7,12 +7,12 @@
 </head>
 <body>
     <h1>Buy Product</h1>
-    <form action="/products/:id/buy" method="post">
-        <img src="<%= product.imageUrl %>" alt="" style="width: 500px;">
+    <form action="/products/<%= product.id %>/buy" method="post">
+        <img src="<%= product.imageUrl %>" alt="" style="width: 300px;">
         <p>Product: <%= product.productName %></p>
         <p>Stock: <%= product.stock %></p>
         <label for="">Quantity:</label>
-        <input type="number" name="buy" id="" max="<%= product.stock %>" placeholder="Bag"> Bag
+        <input type="number" name="buy" id="" placeholder="Bag"> Bag
         <br>
         <input type="submit" value="Buy!">
     </form>

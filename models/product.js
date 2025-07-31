@@ -19,6 +19,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'UserId'
       }) 
     }
+
+    static async buyProduct(id, buy) {
+      let data = await Product.findByPk(id)
+      return data.decrement({
+        stock: buy
+      })
+    }
   }
   Product.init({
     productName: {
@@ -88,7 +95,7 @@ module.exports = (sequelize, DataTypes) => {
         notNull: {
           args: true,
           msg: `Stock cannot be null`
-        },
+        }
       }
     },
     UserId: DataTypes.INTEGER
@@ -96,6 +103,11 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate(Product, options) {
         Product.UserId = 1
+      },
+      beforeUpdate(Product, options) {
+        if (Product.stock < 0) {
+          return new Error(`Cannot order more than ${Product.stock}`)
+        }
       }
     },
     sequelize,

@@ -57,7 +57,7 @@ class Controller {
     static async postAddProduct(req, res) {
         try {
             let {productName, price, stock, imageUrl, CategoryId, description} = req.body;
-            await Product.create({productName, price, stock, imageUrl, description});
+            let createdData = await Product.create({productName, price, stock, imageUrl, description});
             let data = await Product.findAll({
                 order: [
                     ['id', 'ASC']
@@ -65,11 +65,13 @@ class Controller {
             });
             data = data[data.length-1];
             let ProductId = data.dataValues.id;
-            if (CategoryId) {
+            console.log(CategoryId, '<<<<<<<<<<<<<<<<<<<<<<<<<<<');
+            
+            if (CategoryId && !Array.isArray(CategoryId)) {
                 productCategory.create({ProductId, CategoryId});
             } else if (CategoryId.length > 1) {
                 CategoryId.forEach(el => {
-                    productCategory.create({ProductId, CategoryId: +el})
+                    productCategory.create({ProductId, CategoryId: el})
                 });
             }
             res.redirect('/products');
@@ -109,6 +111,8 @@ class Controller {
         try {
             const {id} = req.params
             let {productName, price, stock, imageUrl, CategoryId, description} = req.body;
+            console.log(CategoryId);
+            
             await Product.update({productName, price, stock, imageUrl, CategoryId, description}, {
                 where: {
                     id: id
@@ -159,12 +163,9 @@ class Controller {
     }
     static async postBuyProduct(req, res) {
         try {
-            const {id} = req.params
-            const {buy} = req.body
-            let data = await Product.findByPk(id)
-            await data.decrement({
-                stock: buy
-            })
+            const { id } = req.params
+            const { buy } = req.body
+            await Product.buyProduct(id, buy)
             res.redirect('/products')
         } catch (error) {
             console.log(error);

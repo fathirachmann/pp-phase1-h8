@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeliKopi - <%= profileData.dataValues.name %>' Profile</title>
+</head>
+<body>
+    <div class="profile-wrapper">
+        <h1><%= profileData.dataValues.name %>' Profile</h1>
+    <img src="<%= profileData.dataValues.imageProfile %>" alt="">
+    <form action="/profiles/<%= profileData.dataValues.id %>">
+        <label for="">Username</label>
+        <input type="text" name="" id="">
+    </form>
+    </div>
+</body>
+</html>
