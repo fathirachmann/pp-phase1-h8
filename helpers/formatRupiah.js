@@ -4,3 +4,5 @@ function formatRupiah(value) {
         currency: 'IDR'
         }).format(value);
 }
+
+module.exports = formatRupiah

@@ -1,5 +1,6 @@
-const {Category, Product, User} = require('../models/index');
+const {Category, Product, productCategory} = require('../models/index');
 const { Op } = require('sequelize');
+const formatRupiah = require('../helpers/formatRupiah');
 
 class Controller {
     static async getProduct(req, res) {
@@ -34,25 +35,88 @@ class Controller {
             let productData = await Product.findAll(options)
             let categoryData = await Category.findAll()
             console.log(Category);
-            res.render('product', {productData, categoryData})
+            res.render('product', {productData, categoryData, formatRupiah})
         } catch (error) {
             console.log(error);
             res.send(error)
         }
     }
 
-    static async getAddProduct() {
+    static async getAddProduct(req, res) {
         try {
-            res.render('addProduct')
+            let categoryData = await Category.findAll()
+            res.render('addProduct', {categoryData})
         } catch (error) {
             console.log(error);
             res.send(error)
         }
     }
 
-    static async postAddProduct() {
+    static async postAddProduct(req, res) {
         try {
+            let {productName, price, stock, imageUrl, CategoryId, description} = req.body
+            await Product.create({productName, price, stock, imageUrl, description})
+            let data = await Product.findAll()
+            data = data[data.length-1]
+            let ProductId = data.dataValues.id
+            
+            if (CategoryId.length > 1) {
+                CategoryId.forEach(el => {
+                    productCategory.create({ProductId, CategoryId: +el})
+                });
+            }
             res.redirect('/products')
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
+    }
+
+    static async productDetail(req, res) {
+        try {
+            const {id} = req.params
+            let productData = await Product.findByPk(id)
+            console.log(`<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`);
+            res.render('productDetail', {productData})
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
+    }
+
+    static async getEditProduct(req, res) {
+        try {
+            let categoryData = await Category.findAll()
+            res.render('addProduct', {categoryData})
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
+    }
+    static async postEditProduct(req, res) {
+        try {
+            let categoryData = await Category.findAll()
+            res.render('addProduct', {categoryData})
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
+    }
+    static async deleteProduct(req, res) {
+        try {
+            const {id} = req.params
+            let categoryData = await Category.findAll()
+            res.render('addProduct', {categoryData})
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
+    }
+    static async buyProduct(req, res) {
+        try {
+            const {id} = req.params
+            let categoryData = await Category.findAll()
+            res.render('addProduct', {categoryData})
         } catch (error) {
             console.log(error);
             res.send(error)
