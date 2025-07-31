@@ -39,7 +39,7 @@ class indexController {
           // userId is the name we can create
           req.session.userId = user.id
           console.log(req.session, "req session fr controller");
-          return res.redirect("/"); 
+          return res.redirect("/product"); 
           // if userpwd is incorrect redirect to login
         } else {
           const err = "Your email / password is invalid.";

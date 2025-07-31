@@ -6,7 +6,7 @@ const productRouter = require('../routes/route-products');
 const router = express.Router()
 
 
-app.use('/product', productRouter);
+router.use('/product', productRouter);
 
 
 router.get('/', Controller.home)
@@ -40,7 +40,6 @@ router.post('/login', Controller.postLogin)
 
 // to test to another route
 
-
 router.use((req, res, next) => {
   console.log(req.session); // check the session object
   if (!req.session.userId) {
@@ -49,7 +48,7 @@ router.use((req, res, next) => {
     return res.redirect(`/login?err=${err}`);
   }
 
-  // Optional: redirect based on role
+  //  redirect based on role
   if (req.originalUrl === '/' && req.session.role === 'admin') {
     return res.redirect('/product'); // or wherever admin should go
   }
