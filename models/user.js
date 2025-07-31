@@ -1,4 +1,7 @@
 'use strict';
+//BCryptJS Password Hashing
+const bcrypt = require('bcryptjs');
+const salt = bcrypt.genSaltSync(10);
 const {
   Model
 } = require('sequelize');
@@ -22,11 +25,63 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    role: DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        len: {
+          args: [6],
+          msg: 'username must be at least 6 characters long'
+        },
+        notEmpty: {
+          agrs: true,
+          msg: 'username is required'
+        },
+        notNull: {
+          agrs: true,
+          msg: 'username is required'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: {
+          agrs: true,
+          msg: 'E-mail is required'
+        },
+        notNull: {
+          agrs: true,
+          msg: 'E-mail is required'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: {
+          agrs: [6],
+          msg: 'password must be at least 6 characters long'
+        },
+      }
+    },
+    role: DataTypes.STRING // by default setiap User yang register role = User
   }, {
+    hooks: {
+      beforeCreate(User, options) { // Bcrypt create password hashing
+        User.password = bcrypt.hash(User.password, salt),
+        User.role = 'user'
+      },
+      beforeUpdate(User, options) { // Bcrypt change password hashing
+        if (User.changed('password')) {
+          User.password = bcrypt.hash(User.password, salt)
+        }
+      }
+    },
     sequelize,
     modelName: 'User',
   });
