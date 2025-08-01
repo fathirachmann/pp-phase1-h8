@@ -36,7 +36,6 @@ class Controller {
             });
             data = data[data.length-1];
             let ProductId = data.dataValues.id;
-            console.log(CategoryId, '<<<<<<<<<<<<<<<<<<<<<<<<<<<');
             
             if (CategoryId && !Array.isArray(CategoryId)) {
                 productCategory.create({ProductId, CategoryId});
