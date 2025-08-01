@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express()
-const port = 4000
+const port = 4002
 const router = require('./routes/router');
 const session = require('express-session');
 
@@ -16,6 +16,9 @@ app.use(session({
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
+
+
+
 app.use(express.static('public'));
 app.use(router)
 
