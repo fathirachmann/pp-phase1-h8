@@ -27,7 +27,7 @@
             <p><strong>Taste Profile:</strong></p>
             <div class="taste-profile">
                 <% productData.dataValues.Categories.forEach(el => { %>
-                    <span><%= el.dataValues.tasteProfile %> from <%= el.dataValues.beanType %> beans.</span><br>
+                    <span><%= el.formatTaste %></span><br> 
                 <% }) %>
             </div>
 

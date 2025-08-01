@@ -46,7 +46,10 @@ class Controller {
         try {
             const {id} = req.params
             const {balance} = req.body
-            data = await UserProfile.findByPk(id)
+            if (balance < 10000) {
+                throw new Error('Top up minimum amount is Rp. 10.000,00')
+            }
+            let data = await UserProfile.findByPk(id)
             await data.increment({
                 balance: balance
             })

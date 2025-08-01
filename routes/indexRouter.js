@@ -19,6 +19,16 @@ const mwOne = ((req, res, next) => {
   next()
 })
 
+// -- MW untuk session login --
+router.use((req, res, next) => {
+  console.log(req.session);
+  if (req.session.userId) {
+    if(req.originalUrl === '/login') {
+      return res.redirect('/products')
+    }
+  }
+  next()
+})
 
 router.get('/login', mwOne, Controller.login)
 router.post('/login', Controller.postLogin)
@@ -49,7 +59,7 @@ router.use((req, res, next) => {
 
   //  redirect based on role
   if (req.originalUrl === '/' && req.session.role === 'admin') {
-    return res.redirect('/product'); // or wherever admin should go
+    return res.redirect('/products'); // or wherever admin should go
   }
 
   if (req.originalUrl === '/' && req.session.role === 'user') {

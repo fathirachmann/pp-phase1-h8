@@ -9,7 +9,7 @@
 <body>
   <%- include('partials/_header', {session: req.session}) %>
     <center>
-    <form action="/profiles/<%= profile.id %>/topup">
+    <form action="/profiles/<%= profile.id %>/topup" method="post">
         <h1>Top Up Balance</h1>
         <label for="">Top Up Amount</label>
         <input type="number" name="balance" id="" min="10000" placeholder="Min. 10,000">

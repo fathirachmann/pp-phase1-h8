@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         { where: {
            id 
-          } 
+        },
         }
       )
       return result
@@ -45,11 +45,6 @@ module.exports = (sequelize, DataTypes) => {
         min: {
           args: 0,
           msg: 'Not enough balance'
-        },
-        addBalance(value) {
-          if (value < 10000) {
-            throw new Error('Top up minimum amount is Rp. 10.000,00 ')
-          }
         }
       }
     },

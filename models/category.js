@@ -15,6 +15,9 @@ module.exports = (sequelize, DataTypes) => {
         through: 'productCategories'
       })
     }
+    get formatTaste() { // GETTER - IN PRODUCT DESCRIPTION
+      return `${this.tasteProfile} from ${this.beanType} beans`
+    }
   }
   Category.init({
     beanType: DataTypes.STRING,

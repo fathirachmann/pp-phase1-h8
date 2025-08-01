@@ -14,24 +14,6 @@
 </head>
 <body>
     <%- include('partials/_header', {session: req.session}) %>
-    
-    <h1>Log In</h1>
-    <hr>
-    <form action="/login" method="POST">
-        <label for="email">Email : </label><br>
-        <input type="email" name="email"><br><br>
-        <label for="password">Password : </label><br>
-        <input type="password" name="password"><br><br>
-        <button type="submit">Login</button>
-    </form>
-    <p>Please sign up <a href="/signup">here</a>. If you don't have an account</p>
-    
-    <hr>
-    <% if (err) { %>
-     <div style="color: red;"><strong><%= err %></strong></div>
-     <!-- <hr> -->
-    <% } %>
-  <%- include('partials/_header') %>
 
   <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="card p-4 shadow login-card text-center">
