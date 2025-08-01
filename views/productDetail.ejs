@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beli Kopi - <%= productData.dataValues.productName %></title>
+    <link rel="stylesheet" href="/assets/styles/productDetail.css">
+</head>
+<body>
+    <%- include('partials/_header', {session: req.session}) %>
+
+    <main class="product-card">
+        <div class="product-image">
+            <img src="<%= productData.dataValues.imageUrl %>" alt="Coffee Image">
+        </div>
+        <div class="product-details">
+            <h1><%= productData.dataValues.productName %></h1>
+            <p><strong>Description:</strong> <%= productData.dataValues.description %></p>
+            
+            <p><strong>Bean Type:</strong></p>
+            <div class="bean-types">
+                <% productData.dataValues.Categories.forEach(el => { %>
+                    <button><%= el.dataValues.beanType %></button>
+                <% }) %>
+            </div>
+
+            <p><strong>Taste Profile:</strong></p>
+            <div class="taste-profile">
+                <% productData.dataValues.Categories.forEach(el => { %>
+                    <span><%= el.formatTaste %></span><br> 
+                <% }) %>
+            </div>
+
+            <p><strong>Price:</strong> <%= formatRupiah(productData.dataValues.price) %></p>
+            <p><strong>Stock:</strong> <%= productData.dataValues.stock %></p>
+
+            <div class="action-buttons">
+                <% if (req.session.role === 'admin') { %>
+                    <a href="/products/<%= productData.dataValues.id %>/edit" class="edit-btn">Edit</a>
+                <% } %>
+                <a href="/products/<%= productData.dataValues.id %>/buy" class="buy-btn">Buy</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

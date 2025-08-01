@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= product.dataValues.productName %></title>
+    <link rel="stylesheet" href="/assets/styles/editProduct.css">
+</head>
+<body>
+    <%- include('partials/_header', {session: req.session}) %>
+
+    <h1>Edit Product: <%= product.dataValues.productName %></h1>
+
+    <form action="/products/<%= product.dataValues.id %>/edit" method="post">
+        <div style="text-align: center;">
+            <img src="<%= product.dataValues.imageUrl %>" alt="Product Image" style="width: 240px; border-radius: 8px; margin-bottom: 20px;">
+        </div>
+
+        <label for="productName">Coffee Name</label>
+        <input type="text" name="productName" id="productName" value="<%= product.dataValues.productName %>">
+
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" value="<%= product.dataValues.price %>">
+
+        <label for="stock">Stock</label>
+        <input type="number" name="stock" id="stock" value="<%= product.dataValues.stock %>">
+
+        <label for="imageUrl">Image URL</label>
+        <input type="text" name="imageUrl" id="imageUrl" value="<%= product.dataValues.imageUrl %>">
+
+        <label for="category1">Bean Type</label>
+        <div style="display: flex; gap: 10px;">
+            <select name="CategoryId" id="category1">
+                <option value="" selected disabled>-- Select Bean Type</option>
+                <% categoryData.forEach(el => { %>
+                    <option value="<%= el.id %>" <%= el.beanType === product.dataValues.Categories[0].beanType ? 'selected' : '' %>>
+                        <%= el.beanType %>
+                    </option>
+                <% }) %>
+            </select>
+
+            <select name="CategoryId" id="category2">
+                <option value="" selected disabled>-- Select Bean Type</option>
+                <% categoryData.forEach(el => { %>
+                    <option value="<%= el.id %>" <%= el.beanType === product.dataValues.Categories[1].beanType ? 'selected' : '' %>>
+                        <%= el.beanType %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description"><%= product.dataValues.description %></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/products/<%= product.dataValues.id %>/delete" style="color: #a9745f; text-decoration: underline;">Delete?</a>
+    </div>
+</body>
+</html>

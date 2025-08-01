@@ -3,7 +3,7 @@
     "productName": "Sumatra Mandheling",
     "description": "Full-bodied with earthy and chocolate notes.",
     "price": 135000,
-    "imageUrl": "https://example.com/img/sumatra-mandheling.jpg",
+    "imageUrl": "https://specialtycoffee.id/wp-content/uploads/2023/07/Roasted-Mandheling-Coffee.jpg",
     "stock": 45,
     "UserId": 2
   },
@@ -11,7 +11,7 @@
     "productName": "Java Preanger",
     "description": "Bright acidity, hints of chocolate and spice.",
     "price": 120000,
-    "imageUrl": "https://example.com/img/java-preanger.jpg",
+    "imageUrl": "https://specialtycoffee.id/wp-content/uploads/2022/09/java-preanger.webp",
     "stock": 30,
     "UserId": 2
   },
@@ -19,7 +19,7 @@
     "productName": "Toraja Kalosi",
     "description": "Complex body with fruity and spicy undertones.",
     "price": 145000,
-    "imageUrl": "https://example.com/img/toraja-kalosi.jpg",
+    "imageUrl": "https://kopikita.id/wp-content/uploads/2024/10/unnamed-72.jpg",
     "stock": 20,
     "UserId": 2
   },
@@ -27,7 +27,7 @@
     "productName": "Aceh Gayo",
     "description": "Smooth body with earthy tones and balanced acidity.",
     "price": 130000,
-    "imageUrl": "https://example.com/img/aceh-gayo.jpg",
+    "imageUrl": "https://www.ikopi.co.id/wp-content/uploads/2021/09/mordheweyk_1631163288984.jpg",
     "stock": 35,
     "UserId": 2
   },
@@ -35,7 +35,7 @@
     "productName": "Bali Kintamani",
     "description": "Citrusy and clean with a bright floral finish.",
     "price": 125000,
-    "imageUrl": "https://example.com/img/bali-kintamani.jpg",
+    "imageUrl": "https://specialtycoffee.id/wp-content/uploads/2022/11/Gayo-Bali-Java-Natural.webp",
     "stock": 40,
     "UserId": 2
   },
@@ -43,7 +43,7 @@
     "productName": "Flores Bajawa",
     "description": "Well-balanced with chocolate, floral, and nutty notes.",
     "price": 128000,
-    "imageUrl": "https://example.com/img/flores-bajawa.jpg",
+    "imageUrl": "https://www.ikopi.co.id/wp-content/uploads/2020/09/slider_green_bean-1.jpg",
     "stock": 25,
     "UserId": 2
   },
@@ -51,7 +51,7 @@
     "productName": "Papua Wamena",
     "description": "Soft and sweet, low acidity with herbal aroma.",
     "price": 140000,
-    "imageUrl": "https://example.com/img/papua-wamena.jpg",
+    "imageUrl": "https://indonesiacoffees.com/wp-content/uploads/2019/07/Wamena-Arabica-Coffee-Green-Bean.jpg",
     "stock": 18,
     "UserId": 2
   },
@@ -59,7 +59,7 @@
     "productName": "Luwak Coffee",
     "description": "Smooth, rich, and rare; processed via civet.",
     "price": 300000,
-    "imageUrl": "https://example.com/img/luwak.jpg",
+    "imageUrl": "https://www.fnb.co.id/wp-content/uploads/2023/12/Luwak-Coffee.jpg",
     "stock": 12,
     "UserId": 2
   },
@@ -67,7 +67,7 @@
     "productName": "Sulawesi Enrekang",
     "description": "Medium body with mild fruity acidity and nutty finish.",
     "price": 132000,
-    "imageUrl": "https://example.com/img/sulawesi-enrekang.jpg",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlF6CCDK42rmC7dV5lw5EAJonhvOaYLVgfcw&s",
     "stock": 22,
     "UserId": 2
   },
@@ -75,7 +75,7 @@
     "productName": "West Java Honey",
     "description": "Sweet, honey-processed with caramel and tea-like body.",
     "price": 138000,
-    "imageUrl": "https://example.com/img/west-java-honey.jpg",
+    "imageUrl": "https://fnb.coffee/wp-content/uploads/2024/11/Honey-Coffee-2.jpg",
     "stock": 28,
     "UserId": 2
   }

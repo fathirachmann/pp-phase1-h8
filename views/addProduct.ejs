@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeliKopi - Add New Product</title>
+    <link rel="stylesheet" href="/assets/styles/addProduct.css">
+</head>
+<body>
+    <%- include('partials/_header', { session: req.session }) %>
+
+    <h1>Add New Product</h1>
+
+    <form action="/products/add" method="post">
+        <label for="productName">Coffee Name</label>
+        <input type="text" name="productName" id="productName">
+
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price">
+
+        <label for="stock">Stock</label>
+        <input type="number" name="stock" id="stock">
+
+        <label for="imageUrl">Image URL</label>
+        <input type="text" name="imageUrl" id="imageUrl">
+
+        <label for="category1">Bean Type</label>
+        <select name="CategoryId" id="category1">
+            <option value="" selected disabled>-- Select Bean Type --</option>
+            <% categoryData.forEach(el => { %>
+                <option value="<%= el.id %>"><%= el.beanType %></option>
+            <% }) %>
+        </select>
+
+        <select name="CategoryId" id="category2">
+            <option value="" selected disabled>-- Select Bean Type --</option>
+            <% categoryData.forEach(el => { %>
+                <option value="<%= el.id %>"><%= el.beanType %></option>
+            <% }) %>
+        </select>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BeliKopi - <%= profileData.dataValues.name %>'s Profile</title>
+  <link rel="stylesheet" href="/assets/styles/profile.css" />
+</head>
+<body>
+  <%- include('partials/_header', { session: req.session }) %>
+
+  <div class="profile-wrapper">
+    <h1><%= profileData.dataValues.name %>'s Profile</h1>
+
+    <div class="profile-image">
+      <img src="<%= profileData.dataValues.imageProfile %>" alt="Profile Picture" />
+    </div>
+
+    <form action="/profiles/<%= profileData.dataValues.id %>" method="post">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" value="<%= profileData.dataValues.User.dataValues.username %>" required />
+
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<%= profileData.dataValues.name %>" required />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" value="<%= profileData.dataValues.User.dataValues.email %>" required />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="New Password?" />
+
+      <label for="address">Address</label>
+      <input type="text" name="address" id="address" value="<%= profileData.dataValues.address %>" />
+
+      <label for="imageProfile">Profile Image URL</label>
+      <input type="text" name="imageProfile" id="imageProfile" value="<%= profileData.dataValues.imageProfile %>" />
+
+      <div class="balance-section">
+        <p>Current Balance: <strong><%= formatRupiah(profileData.dataValues.balance) %></strong></p>
+        <a class="topup-link" href="/profiles/<%= profileData.dataValues.id %>/topup">Top Up</a>
+      </div>
+
+      <input type="submit" value="Update Profile" />
+    </form>
+
+    <div class="logout-section">
+      <a href="/logout">Log Out</a>
+    </div>
+  </div>
+</body>
+</html>

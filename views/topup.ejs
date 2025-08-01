@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Up</title>
+  <link rel="stylesheet" href="/assets/styles/topup.css">
+</head>
+<body>
+  <%- include('partials/_header', {session: req.session}) %>
+    <center>
+    <form action="/profiles/<%= profile.id %>/topup" method="post">
+        <h1>Top Up Balance</h1>
+        <label for="">Top Up Amount</label>
+        <input type="number" name="balance" id="" min="10000" placeholder="Min. 10,000">
+        <input type="submit" value="Top Up!">
+        <p>OR USE QR CODE:</p>
+        <img src="<%= qrImage %>" alt="QR Code for Top Up">
+    </form>
+    </center>
+  
+</body>
+</html>

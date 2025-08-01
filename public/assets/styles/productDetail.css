@@ -1,0 +1,141 @@
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fcf9f3;
+  color: #3e2b1f;
+  margin: 0;
+  padding: 0;
+}
+
+main.product-card {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 100px auto 40px; /* margin-top for navbar spacing */
+  background-color: #fffaf4;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(78, 53, 36, 0.1);
+  overflow: hidden;
+  border: 1px solid #e1d6c4;
+}
+
+.product-image {
+  flex: 1;
+  padding: 30px;
+  background-color: #f5eee6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #dbc9b3;
+}
+
+.product-details {
+  flex: 2;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product-details h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #5c3b28;
+}
+
+.product-details p {
+  font-size: 16px;
+  color: #4a3a2b;
+  margin: 5px 0;
+}
+
+.bean-types,
+.taste-profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.bean-types button {
+  background-color: #e7d5c0;
+  color: #4d2f1f;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: default;
+}
+
+.taste-profile span {
+  font-style: italic;
+  font-size: 14px;
+  color: #6a4c34;
+}
+
+.action-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+.edit-btn,
+.buy-btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+  background-color: #c4a484;
+  color: white;
+}
+
+.buy-btn {
+  background-color: #7f4f24;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #a28366;
+}
+
+.buy-btn:hover {
+  background-color: #5e3d1f;
+}
+
+/* Navbar spacing support */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fffaf4;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+body {
+  padding-top: 80px; /* adjust based on your actual navbar height */
+}
+
+@media (max-width: 768px) {
+  main.product-card {
+    flex-direction: column;
+    margin: 100px 20px 40px;
+  }
+
+  .product-image,
+  .product-details {
+    padding: 20px;
+  }
+}
